@@ -40,7 +40,7 @@ logreg.fit(train_dataset, train_labels)
 z1 = logreg.predict(test_dataset)
 a = 0.0
 b = 0.0
-for x in (z==test_labels):
+for x in (z1==test_labels):
     if(x):
         a = a + 1
     b = b + 1
