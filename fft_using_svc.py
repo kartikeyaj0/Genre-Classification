@@ -24,13 +24,7 @@ def read_fft(genre_list, base_dir = '/media/kj/New Volume/opihi.cs.uvic.ca/sound
 
 genre_list = ["blues", "classical", "country", "disco", "hiphop", "jazz", "metal", "pop", "rock"]
 train_dataset,train_labels = read_fft(genre_list)
-train_size = train_dataset.shape[0]
-
 test_dataset, test_labels = read_fft(genre_list, '/media/kj/New Volume/opihi.cs.uvic.ca/sound/genres/fft/testing')
-test_size = test_dataset.shape[0]
-
-valid_dataset, valid_labels = read_fft(genre_list, '/media/kj/New Volume/opihi.cs.uvic.ca/sound/genres/fft/cross_val')
-valid_size = valid_dataset.shape[0]
 
 def randomize(dataset, labels):
 	permutation = np.random.permutation(labels.shape[0])
@@ -41,7 +35,6 @@ def randomize(dataset, labels):
 # To randomize
 train_dataset, train_labels = randomize(train_dataset, train_labels)
 test_dataset, test_labels = randomize(test_dataset, test_labels)
-valid_dataset, valid_labels = randomize(valid_dataset, valid_labels)
 
 clff = OneVsRestClassifier(LinearSVC(random_state=0)).fit(train_dataset, train_labels)
 z1 = clff.predict(test_dataset)
