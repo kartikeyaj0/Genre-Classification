@@ -34,7 +34,6 @@ def randomize(dataset, labels):
 # To randomize
 train_dataset, train_labels = randomize(train_dataset, train_labels)
 test_dataset, test_labels = randomize(test_dataset, test_labels)
-valid_dataset, valid_labels = randomize(valid_dataset, valid_labels)
 
 logreg = lm.LogisticRegression(penalty='l2', dual=False, tol=0.0001, C=1e5, fit_intercept=True, intercept_scaling=1, class_weight=None, random_state=None, solver='liblinear', max_iter=1000, multi_class='ovr', verbose=0, warm_start=False, n_jobs=1)
 logreg.fit(train_dataset, train_labels)
