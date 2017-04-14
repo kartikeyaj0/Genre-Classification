@@ -23,10 +23,7 @@ def read_fft(genre_list, base_dir = '/media/kj/New Volume/opihi.cs.uvic.ca/sound
 
 genre_list = ["blues", "classical", "country", "disco", "hiphop", "jazz", "metal", "pop", "rock"]
 train_dataset,train_labels = read_fft(genre_list)
-train_size = train_dataset.shape[0]
-
 test_dataset, test_labels = read_fft(genre_list, '/media/kj/New Volume/opihi.cs.uvic.ca/sound/genres/fft/testing')
-test_size = test_dataset.shape[0]
 
 def randomize(dataset, labels):
 	permutation = np.random.permutation(labels.shape[0])
@@ -52,7 +49,6 @@ print(a/b)
 
 cm = confusion_matrix(test_labels, z1)
 print(cm)
-
 
 def plot_confusion_matrix(cm, genre_list):
 	pylab.clf()
